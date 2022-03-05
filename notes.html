@@ -1,0 +1,37 @@
+---
+layout: default
+---
+<div style="min-width: 100%; min-height: 100%">
+    <ul class="post-list">
+    {% for tag in site.tags %}
+        {% assign t = tag | first %}
+        {% assign posts = tag | last %}
+
+
+        <div style="margin-bottom: 40px">
+            <h2 style="margin-bottom: 0px">
+                <a href="#{{ tag[0] | slugify }}" class="tag">{{ tag[0] }}</a>
+            </h2>
+            <hr style="margin-bottom: 0px" />
+
+            {% for post in posts %}
+                {% if post.tags contains t %}
+                    {% assign date_format = site.minima.date_format | default: "%b %-d, %Y" %}
+                    <h2 style="font-size: 17px" class="post-title">
+                        <a class="link-post" href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
+
+                        <span class="meta-post">
+                            {{ post.date | date: date_format }}
+                        </span>
+
+                    </h2>
+
+                {% endif %}
+            {% endfor %}
+        </div>
+    {% endfor %}
+  </ul>
+</div>
+
+
+

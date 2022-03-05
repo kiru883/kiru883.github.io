@@ -1,0 +1,25 @@
+---
+layout: default
+---
+<div style="min-width: 100%; min-height: 100%">
+    <ul class="post-list">
+    {% for tag in site.tags %}
+        {% assign t = tag | first %}
+        {% assign posts = tag | last %}
+
+        <div style="margin-top: 40px;">
+            <h2 style="margin-bottom: 0px">
+                <a href="/notes.html#{{ tag[0] | slugify }}" class="tag">{{ tag[0] }}</a>
+
+                <span class="meta-post">
+                    {{ post.date | date: date_format }}
+                </span>
+            </h2>
+        </div>
+
+    {% endfor %}
+  </ul>
+</div>
+
+
+

@@ -1,0 +1,204 @@
+:root {
+  --body-color: #ffffff;
+  --header-color: #ef8354;
+  --title-color: #2d3142;
+  --tag-color: #4f5d75;
+  --meta-color: #bfc0c0;
+  --pre-color: #bfc0c038;
+  --footer-color: #000000;
+}
+
+.home-header {
+    height: 48;
+    position: relative;
+    background-color: var(--header-color);
+}
+
+.body {
+    flex-direction: column;
+    display: flex;
+    min-height: 99vh;
+    background-color: var(--body-color);
+    margin-top: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+.home-div {
+    height: 64px;
+    position: relative;
+    max-width: calc(1000px - (30px * 2));
+    margin-left: auto;
+    margin-right: auto;
+    background-color: var(--header-color);
+}
+
+.link-text {
+  text-decoration: none;
+  color: #fcfcff;
+  font-style: italic;
+  text-align: right;
+  font-family: Comic Sans MS;
+  font-weight: 700;
+}
+
+.link-post {
+  text-decoration: none;
+  color: var(--title-color);
+  text-align: right;
+  font-family: Comic Sans MS;
+  font-weight: 700;
+}
+
+.meta-post {
+    font-weight: 700;
+    font-size: 14.4375px;
+    color: var(--meta-color);
+    float: right;
+}
+
+.post-list {
+    margin-left: -40px;
+    list-style: none;
+}
+
+.nav-head {
+  color: #2A7F62;
+  float: right;
+  bottom: var(--dl-space-space-unit);
+  font-size: 20px;
+  font-style: italic;
+  text-align: right;
+  font-family: Comic Sans MS;
+  font-weight: 700;
+  padding-right: 40px;
+  line-height: 3;
+}
+
+.nav-title {
+  left: 48px;
+  color: #2A7FFF;
+  position: absolute;
+  font-size: 30px;
+  font-style: italic;
+  font-family: Comic Sans MS;
+  font-weight: 900;
+  line-height: 2;
+}
+
+.wrapper {
+    max-width: -webkit-calc(800px - (30px * 2));
+    max-width: calc(800px - (30px * 2));
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.page-content {
+    flex-grow: 1;
+    padding: 30px;
+}
+
+.post-title {
+    margin: 5px;
+    margin-left: 0px;
+}
+
+.about-div {
+  flex: 1;
+  height: 509px;
+  position: relative;
+  max-width: calc(1000px - (30px * 2));
+  margin-top: 100px;
+}
+
+.about-title-div {
+  flex: 0 0 auto;
+  width: 100%;
+  height: 41px;
+  display: flex;
+  align-items: flex-start;
+  margin-block-end: 40px;
+}
+
+.about-title {
+  color: var(--header-color);
+  width: 267px;
+  height: 36px;
+  font-size: 26px;
+  font-style: italic;
+  font-family: Comic Sans MS;
+  font-weight: 700;
+  padding-top: 8px;
+  letter-spacing: 1px;
+}
+
+.about-text {
+  height: auto;
+  margin-top: 25px;
+  text-align: left;
+  line-height: 1.3;
+  margin-left: 24px;
+  font-size: 20px;
+}
+
+.site-footer {
+    right: 0;
+    left: 0;
+    text-align: center;
+    color: var(--footer-color);
+    margin-bottom: 20px;
+}
+
+.footer-link {
+    text-decoration: none;
+    color: var(--tag-color);
+    font-weight: 600;
+}
+
+.tag {
+  text-decoration: none;
+  color: var(--tag-color);
+  font-style: italic;
+  text-align: right;
+  font-family: Comic Sans MS;
+  font-weight: 700;
+}
+
+.h-tag {
+    margin-top: 7px;
+    margin-left: 10px;
+    font-size: 15.5px;
+    margin-bottom: -6px;
+}
+
+#note-content {}
+#note-content p{font-size: 18px; hyphens: auto;}
+#note-content li{font-size: 18px; hyphens: auto;}
+#note-content dl{font-size: 18px; hyphens: auto;}
+
+#note-content h1 {color: var(--title-color);}
+#note-content h2 {color: var(--title-color);}
+#note-content h3 {color: var(--title-color);}
+#note-content h4 {color: var(--title-color);}
+#note-content h5 {color: var(--title-color);}
+#note-content h6 {color: var(--title-color);}
+
+#note-content pre{
+    padding: 16px;
+    overflow: auto;
+    line-height: 1.45;
+    background-color: var(--pre-color);
+    border-radius: 6px
+}
+#note-content img{
+    max-width: calc(1000px - (200px * 2));
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+#note-content a {
+        text-decoration: none;
+        color: var(--tag-color);
+}
+
+
