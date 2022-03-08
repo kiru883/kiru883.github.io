@@ -1,10 +1,10 @@
 :root {
-  --body-color: #ffffff;
-  --header-color: #ef8354;
-  --title-color: #2d3142;
-  --tag-color: #4f5d75;
-  --meta-color: #bfc0c0;
-  --pre-color: #bfc0c038;
+  --body-color: #FEFCFD;
+  --header-color: #3B3355;
+  --title-color: #000505;
+  --tag-color: #5D5D81;
+  --meta-color: #BFCDE0;
+  --pre-color: #BFCDE038;
   --footer-color: #000000;
 }
 
@@ -171,7 +171,7 @@
     margin-bottom: -6px;
 }
 
-#note-content {}
+#note-content {overflow-wrap: break-word;}
 #note-content p{font-size: 18px; hyphens: auto;}
 #note-content li{font-size: 18px; hyphens: auto;}
 #note-content dl{font-size: 18px; hyphens: auto;}
