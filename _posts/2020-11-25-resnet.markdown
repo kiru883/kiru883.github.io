@@ -8,7 +8,7 @@ style: note
 # Main idea
 
 Main idea of ResNet is use residual blocks or "building" blocks of this network. For example exist "ideal"
-fea ture map __out_feature_map__, instead approach to __out_feature_map__ as this make simple CNN(like VGG):
+feature map __out_feature_map__, instead approach to __out_feature_map__ as this make simple CNN(like VGG):
 
 ```
 cnn_out_feature_map = CNN_block_fisrt(inp_feature_map)
@@ -20,11 +20,11 @@ ResNet get __out_feature_map__ in the following way:
 out_feature_map = RES_block_first(inp_feature_map) + inp_feature_map
 ```
 
-Where output of RES_block_first is residual, thus we approach to __out_feature_map__ using residuals of res. blocks.
-Each residual block using skip connection or shortcut. *My intuitive* interpretation: association with
-gradient boosting on trees, alike each tree in GBT generate tails, res. blocks inputs residuals. 
-Also shortcut solve problem of vanishing gradients(during backprop, gradient come through shortcut, bypassing many conv layer which may
-vanish gradient).
+Where the output of RES_block_first is residual, thus we approach to __out_feature_map__ using residuals of res. blocks.
+Each residual block uses a skip connection or shortcut. *My intuitive* interpretation: association with
+gradient boosting on trees, alike each tree in GBT generate tails, res. blocks generate residuals. 
+Also, shortcuts solve the problem of vanishing gradients(during backprop, gradient come through shortcut, bypassing many conv layers which may
+decrease gradient).
 
 # Residual block or bottleneck
 
@@ -33,24 +33,28 @@ identity mapping function or f(x) = x, in implementations used CONV+BN+ReLU.
 
 ![resnet-a](/images/resnet/resnet-a.png)
 
+> Figure A.
+
 Example of Resnet34 architecture on image B, various colors are marked blocks with different size of feature map. ResNet
 use 2 types of shortcut:
 * Shortcut 1, just perform identity mapping function, between blocks with same feature map's size.
 * Shortcut 2, using when need change feature map size, can change it in 2 different ways:
-  * Non-parametrical, using pooling 1x1/2, but it not change num. of channels, for this add(in 18, 34 architectures) zero feature maps or delete(other) feature maps;
-  * Parametreical, it best[1], using conv 1x1/2 it increase(18/34) or decrease(other) number of channels
+  * Non-parametrical, using pooling 1x1/2, but it not change num. of channels, for this add(in 18, 34 architectures) zero feature maps or delete(other architectures) feature maps;
+  * Parametreical, it best[1], using conv 1x1/2 it increase(18/34) or decrease(other architectures) number of channels
 
 ![resnet-b](/images/resnet/resnet-b.png)
+
+> Figure B.
 
 # Resnet architecture
 
 On figure B(top) a plot resnet architectures, some convolution layers have 'same' padding(HxW of input = HxW of output),
 size of input feature maps compute based on size of input image - 224x224. Bottom table show number of parameters
-for architecture with different count of parameters.
+for architecture with different count of layers.
 
 ![resnet-c](/images/resnet/resnet-c.png)
 
-> Figure B.
+> Figure C.
 
 Links
 
