@@ -21,6 +21,8 @@ There should be whitespace between paragraphs. We recommend including a README, 
 
 This is a normal paragraph following a header. GitHub is a code hosting platform for version control and collaboration. It lets you and others work together on projects from anywhere.
 
+> Figure A.
+ 
 ## Header 2
 
 > This is a blockquote following a header.
@@ -111,7 +113,10 @@ asdasdasdsad.
 
 ### Large image
 
-![Branching](/images/test.png)
+![Branching asdasd](/images/test.png)
+asdasd
+
+> asdasdasd asdasd
 
 
 ### Definition lists can be used with HTML syntax.

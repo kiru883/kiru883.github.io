@@ -196,6 +196,19 @@
     margin-left: auto;
     margin-right: auto;
 }
+
+
+#note-content blockquote {
+    padding: 0 1em;
+    overflow: auto;
+    background-color: var(--pre-color);
+}
+
+#note-content blockquote p {
+    font-size: 1em;
+}
+
+
 #note-content a {
         text-decoration: none;
         color: var(--tag-color);
