@@ -42,7 +42,7 @@ Thus in bottleneck 3, with input_channels=128, groups=32 and filters=128, input 
 
 One and the main future in SEResNeXt is SE block, this block consists of 3 main parts: squeeze, excitation, scale.
 The idea of this block in __weigh input feature maps__ by element wise product between coef's and feature maps in order to 
-increase importance for feature maps of one class(for the most characteristic class) and decrease for another class, in other words SE need for recalibrating 
+increase importance for feature maps of one class(for the most characteristic class) and decrease for another class, in other words SE needed for recalibrating 
 feature maps. My example:
 
 *There are 2 classes: parrot and eagle. Let's agree that for parrot characteristics more bright colors, for eagles more dark colors (like black, white, etc.).

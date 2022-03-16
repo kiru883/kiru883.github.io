@@ -1,1 +1,1 @@
-# Some of my notes.
+# Some of my notes and article essences.
