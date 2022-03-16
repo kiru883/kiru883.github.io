@@ -62,8 +62,8 @@ Links
 
 1. [Nice base explanation;](https://towardsdatascience.com/intuition-behind-residual-neural-networks-fa5d2996b2c7)
 2. [Another one;](https://neurohive.io/ru/vidy-nejrosetej/resnet-34-50-101)
-3. [Implementation by keras team.](https://github.com/keras-team/keras-applications/blob/master/keras_applications/resnet50.py)
+3. [Implementation by keras team;](https://github.com/keras-team/keras-applications/blob/master/keras_applications/resnet50.py)
 4. [Original paper;](https://arxiv.org/pdf/1512.03385.pdf)
-5. [Apply ReLU only for residuals..?;](https://arxiv.org/pdf/1603.05027.pdf)
+5. [Apply ReLU only for residuals..?.](https://arxiv.org/pdf/1603.05027.pdf)
 
 

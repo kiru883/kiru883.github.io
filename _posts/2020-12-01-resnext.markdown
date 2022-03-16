@@ -1,0 +1,92 @@
+---
+layout: post
+title:  "Improve ResNet. ResNeXt and SEResNeXt architectures."
+tags: [cv, feature extractor]
+excerpt: New powerful blocks and techniques for ResNet which improve score and decrease count of parameters. New type of convolution. 
+style: note
+---
+# ResNeXt
+
+### Main idea
+
+Main idea in using grouped convolutions(GC) in bottleneck, this leads to more different, less correlated between itself, filters in
+grouped convolution layer (figure A), besides, GC trains more effectively due to parallel GPU training. Also, with the increased number of 
+kernels in GC, number of parameters of GC decrease.
+
+![alex](/images/seresnext/alex.png)
+
+> Figure A. GC in AlexNet k=2, colored and grayscale filters.
+
+GC divide input feature map into chunks and performs the operation of conv. with each of separate chunk by __filters / group_num__ filters.
+On figure b show a - classic convolution, b - GC.
+
+![gc](/images/seresnext/gc.png)
+
+> Figure B.
+
+### Bottleneck and architecture
+
+Bottleneck of ResNeXt with GC, all 3 variants is __equal__ and architecture(bottom) of ResNeXt, 32 is cardinality(number of groups), 
+4 - length of one group. 
+
+Thus in bottleneck 3, with input_channels=128, groups=32 and filters=128, input channels divided on
+32 groups with length 4, and then each 4-channel group convolved with 128 / 32 = 4 filters.
+
+![resnext_b_a](/images/seresnext/resnextb_arch.png)
+
+> Figure C. Bottleneck(above) and architecture of resnext.
+
+# SEResNeXt
+
+### Essence, SE block
+
+One and the main future in SEResNeXt is SE block, this block consists of 3 main parts: squeeze, excitation, scale.
+The idea of this block in __weigh input feature maps__ by element wise product between coef's and feature maps in order to 
+increase importance for feature maps of one class(for the most characteristic class) and decrease for another class, in other words SE need for recalibrating 
+feature maps. My example:
+
+*There are 2 classes: parrot and eagle. Let's agree that for parrot characteristics more bright colors, for eagles more dark colors (like black, white, etc.).
+Among the feature maps in input of SE block, feature maps responsible for "Red color" and "Green color" have most big values(or descriptors from squeeze part). 
+Thus, SE block think which object - parrot, and SE block increase, via coefficients, "parrot like" feature maps and decrease "eagle like" feature maps.*
+
+SE block adds(for seresnext-50 example) new 2.5 mil. params and consists of parts:
+1. Squeeze, need for getting *descriptors* from feature maps, for this uses global average pooling;
+2. Excitation, required for extract coefficients, r - reduction ratio(regular number of neurons) by default - 16;
+3. Scale, element wise multiplication between coef's and feature maps.
+
+![seblock](/images/seresnext/seblock.png)
+
+> Figure D. Bottleneck(above) left - for SEResNeXt, right - inception family models, bottom - another visualisation of block.
+
+Visualisations of activations(coef's) of different layers of SEResNeXt on ImageNet by classes on image E. 
+
+![se_activity](/images/seresnext/se_activity.png)
+
+> Figure E.
+
+### SEEResNeXt architecture
+
+Architectures of this model on fig. F.
+
+![se_arch](/images/seresnext/se_arch.png)
+
+> Figure F. Architecture of SEResNeXt
+
+Links
+
+***
+
+#### ResNeXt
+
+1. [Nice base explanation;](https://medium.com/@14prakash/understanding-and-implementing-architectures-of-resnet-and-resnext-for-state-of-the-art-image-cc5d0adf648e)
+2. [About grouped convolution;](https://towardsdatascience.com/a-comprehensive-introduction-to-different-types-of-convolutions-in-deep-learning-669281e58215)
+3. [PyTorch implementation;](https://pytorch.org/docs/stable/_modules/torchvision/models/resnet.html#resnext50_32x4d)
+4. [Another one implementation;](https://github.com/prlz77/ResNeXt.pytorch/blob/master/models/model.py)
+5. [Original paper.](https://arxiv.org/pdf/1611.05431.pdf)
+
+#### SERexNeXt
+
+1. [Introduction;](https://towardsdatascience.com/squeeze-and-excitation-networks-9ef5e71eacd7)
+2. [SE block explanation;](https://blog.paperspace.com/channel-attention-squeeze-and-excitation-networks/)
+3. [Original paper;](https://www.robots.ox.ac.uk/~vgg/publications/2018/Hu18/hu18.pdf)
+4. [Nice pytroch implementation.](https://github.com/last-one/tools/blob/master/pytorch/SE-ResNeXt/SeResNeXt.py)
