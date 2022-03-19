@@ -14,7 +14,7 @@ expects two _binary masks_ with size of source image for each of both classes. E
 
 The name "Fully convolutional networks" is called so because it fully consists of conv. layers, this model doesn't use dense layers.
 
-![fcn_arch](/images/fcn/fcn-arch.png)
+![fcn_arch](/images/fcn/fcn_arch.png)
 
 > Figure A. Architecture(top), another one visualisation(bottom).
 
@@ -23,7 +23,7 @@ Generally, FCN includes two parts:
 maps and it needs to extract different image features[1] from source image, but feature maps received on output of this model part lost positional information about object on image, segmentation 
 based only on the encoder part would be of poor quality, im trying to visualize this on figure A.
 
-![fcn_downsample](/images/fcn/fcn-downsample.png)
+![fcn_downsample](/images/fcn/fcn_downsample.png)
 
 > Figure B. Problem of downsample in context of segmentation task.
 
@@ -34,7 +34,7 @@ Without decoder, feature maps would have low quality("high pixeled") segmentatio
 Architecture type's benefits and differences are shown in figure C, FCN-32 using only one 2x deconvolution,
 FCN-8 - three deconv's and have better than FCN-32 quality segmentation.
 
-![fcn_res](/images/fcn/fcn-results.png)
+![fcn_res](/images/fcn/fcn_results.png)
 
 > Figure C. 
 
