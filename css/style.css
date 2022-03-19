@@ -38,7 +38,6 @@
   color: #fcfcff;
   font-style: italic;
   text-align: right;
-  font-family: Comic Sans MS;
   font-weight: 700;
 }
 
@@ -46,7 +45,6 @@
   text-decoration: none;
   color: var(--title-color);
   text-align: right;
-  font-family: Comic Sans MS;
   font-weight: 700;
 }
 
@@ -69,7 +67,6 @@
   font-size: 20px;
   font-style: italic;
   text-align: right;
-  font-family: Comic Sans MS;
   font-weight: 700;
   padding-right: 40px;
   line-height: 3;
@@ -81,7 +78,6 @@
   position: absolute;
   font-size: 30px;
   font-style: italic;
-  font-family: Comic Sans MS;
   font-weight: 900;
   line-height: 2;
 }
@@ -126,7 +122,6 @@
   height: 36px;
   font-size: 26px;
   font-style: italic;
-  font-family: Comic Sans MS;
   font-weight: 700;
   padding-top: 8px;
   letter-spacing: 1px;
@@ -160,7 +155,6 @@
   color: var(--tag-color);
   font-style: italic;
   text-align: right;
-  font-family: Comic Sans MS;
   font-weight: 700;
 }
 

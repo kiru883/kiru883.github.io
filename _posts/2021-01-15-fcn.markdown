@@ -1,0 +1,50 @@
+---
+layout: post
+title:  "Fully convolutional networks based models."
+tags: [cv, segmentation]
+excerpt: Article essence for FCN in which im introduced in segmentation and explain the fully convolutional networks needed for segmentation tasks.  
+style: note
+---
+
+# Segmentation
+Segmentation is a pixel-wise classification task. For example, on the task of cat or dog segmentation, on model output we
+expects two _binary masks_ with size of source image for each of both classes. Examples of "FCN-like" architectures - Unet, SegNet.
+
+# Architecture
+
+The name "Fully convolutional networks" is called so because it fully consists of conv. layers, this model doesn't use dense layers.
+
+![fcn_arch](/images/fcn/fcn-arch.png)
+
+> Figure A. Architecture(top), another one visualisation(bottom).
+
+Generally, FCN includes two parts:
+1. Downsampling(encoder). The first part of the model is encoder or downsampling it using conv/pool layers to get feature 
+maps and it needs to extract different image features[1] from source image, but feature maps received on output of this model part lost positional information about object on image, segmentation 
+based only on the encoder part would be of poor quality, im trying to visualize this on figure A.
+
+![fcn_downsample](/images/fcn/fcn-downsample.png)
+
+> Figure B. Problem of downsample in context of segmentation task.
+
+2. Upsampling or decoder. The second part is decoder its purpose is upsize received feature maps from encoder for recover object positional data.
+FCN uses deconvolution layers mixed with summation feature maps from early layers for this. 
+Without decoder, feature maps would have low quality("high pixeled") segmentation.
+
+Architecture type's benefits and differences are shown in figure C, FCN-32 using only one 2x deconvolution,
+FCN-8 - three deconv's and have better than FCN-32 quality segmentation.
+
+![fcn_res](/images/fcn/fcn-results.png)
+
+> Figure C. 
+
+Links
+
+***
+1. [Lecture about CNN and what contain conv. kernels of trained CNN, ru;](https://youtu.be/gnwG5agGsJ4)
+2. [Introduction in segmentation task;](https://towardsdatascience.com/review-fcn-semantic-segmentation-eb8c9b50d2d1)
+3. [Additional explanation;](https://www.gsitechnology.com/Beginners-Guide-to-Segmentation-in-Satellite-Images)
+4. [Paper;](https://arxiv.org/pdf/1411.4038.pdf)
+5. [More lite implementation for reading;](https://github.com/wkentaro/pytorch-fcn/blob/main/torchfcn/models/fcn8s.py)
+6. [Implementation.](https://github.com/shelhamer/fcn.berkeleyvision.org/blob/1305c7378a9f0ab44b2c936f4d60e4687e3d8743/voc-fcn8s/net.py)
+

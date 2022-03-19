@@ -70,7 +70,7 @@ Architectures of this model on fig. F.
 
 ![se_arch](/images/seresnext/se_arch.png)
 
-> Figure F. Architecture of SEResNeXt
+> Figure F. Architecture of SEResNeXt.
 
 Links
 
