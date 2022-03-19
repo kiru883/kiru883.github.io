@@ -25,7 +25,7 @@ based only on the encoder part would be of poor quality, im trying to visualize 
 
 ![fcn_downsample](/images/fcn/fcn_downsample.png)
 
-> Figure B. Problem of downsample in context of segmentation task.
+> Figure B. Problem of downsample in the context of segmentation task.
 
 2. Upsampling or decoder. The second part is decoder its purpose is upsize received feature maps from encoder for recover object positional data.
 FCN uses deconvolution layers mixed with summation feature maps from early layers for this. 
