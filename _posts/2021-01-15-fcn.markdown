@@ -8,7 +8,9 @@ style: note
 
 # Segmentation
 Segmentation is a pixel-wise classification task. For example, on the task of cat or dog segmentation, on model output we
-expects two _binary masks_ with size of source image for each of both classes. Examples of "FCN-like" architectures - Unet, SegNet.
+expects two _binary masks_ with size of source image for each of both classes. 
+Segmentation is of two main types: semantic(e.g. 2 classes: (dog AND cat AND car AND human), background) and semantic(e.g. 5 classes: car, dog, cat, human, bird).
+Examples of "FCN-like" architectures - Unet, SegNet.
 
 # Architecture
 

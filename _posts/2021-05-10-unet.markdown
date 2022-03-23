@@ -1,0 +1,64 @@
+---
+layout: post
+title:  "U-Net. Couple of tricks for image segmentation."
+tags: [cv, segmentation, tricks]
+excerpt: FCN-similar network for image segmentation and also a few tricks which may improve segmentation and other CV solutions.
+style: note
+---
+
+# U-Net
+
+Model used for semantic and instance segmentation, in the original article, model used for biomedical image segmentation 
+task such as ISBI. Besides, in paper offered some tricks which can improve segmentation, such as augmentation, pixel weighting for loss function, etc.
+
+## Essence and architecture
+
+Model consist on follow parts(like in [FCN](https://kiru883.github.io/2021/01/15/fcn.html)):
+1. Encoder, it needs to extract 'WHAT' info (more detail in [1] and in [FCN](https://kiru883.github.io/2021/01/15/fcn.html)) 
+this information allows get features about object(cat/dog/backgroud/...) and answer questions about what on image, but as you increase the network level, positional data about WHERE this dog/cat/etc object is lost, at least because of 
+size of the feature maps from encoder output (is less than the source image);
+2. Decoder, need to recover positional information ('WHERE') from feature maps on encoder output.
+
+![unet_arch](/images/unet/unet_arch.png)
+
+> Figure A. U-Net architecture.
+
+However, U-Net is different from FCN, following moments:
+1. Feature maps stacked in U-Net, instead sum it like in FCN;
+2. Convolution operation after fusion of feature maps;
+3. In skip connection (gray arrow "copy and crop" in figure A) feature maps crop and as a consequence, final segmentation 
+belongs to only central part of input image(for example size of the input image is 572x572, binary masks is 388x388).
+
+Architecture. By increasing the network level in encoder part number of feature maps(channels) doubles(in decoder inversely). 
+In the decoder part, feature maps stack with cropped feature maps from the corresponding level of the network in encoder part, 
+because feature maps from encoder contain more localization information. For getting in output segmentation maps, used 1x1 kernels of conv. layer.
+
+### Tricks
+
+Image B. Overlap tile approach, used for segmentation high resolution or large images, yellow area in rectangle with segmentation, 
+The blue area is all source image, consequently, cut image on patches, we may more accurately and seamlessly segmentation high resolution images.
+If the patch is located on the edge of the image, the missing part is replaced by a mirrored central(yellow area).
+
+![unet_slice](/images/unet/unet_slice.png)
+
+> Figure B. Overlap tile
+
+Image C. One of the techniques of image augmentation - elastic deformation. 
+
+![ed_augmentation](/images/unet/ed_augmentation.png)
+
+> Figure C. Elastic deformation
+
+In cases when objects may be nearly located and accidently segment as one object, there has been a proposed technique of increase loss function weights on pixels that border between these objects. The last right heat map image demonstrates it.
+
+![minimargin_loss](/images/unet/minimargin_loss.png)
+
+> Figure D. Weight map.
+
+Links
+
+***
+1. [U-Net review;](https://towardsdatascience.com/review-u-net-biomedical-image-segmentation-d02bf06ca760)
+2. [A few words about satellite segmentation and pixel weighting;](https://dida.do/blog/semantic-segmentation-of-satellite-images)
+3. [Another explanation;]( https://zhuanlan.zhihu.com/p/65398511)
+4. [Original paper.](https://arxiv.org/pdf/1505.04597.pdf)
