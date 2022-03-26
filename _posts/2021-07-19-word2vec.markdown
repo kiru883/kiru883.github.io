@@ -1,0 +1,53 @@
+---
+layout: post
+title:  "Word2Vec. CBOW and Skip gram."
+tags: [NLP, embedding]
+excerpt: Method for getting simple contextual but interpretable word embeddings in which may conduct arithmetical operations and find distance between them.
+style: note
+---
+
+# Word to vector, main idea
+
+Word embeddings are vectorized, digital representation of words. Word2Vec exists of two types: CBOW and Skip gram,
+about it later. The main idea of word2vec is that these word embeddings can be used to perform conduct arithmetical operations such as summation and difference, for example:
+```
+'king' + ('lion' - 'lioness') ~= 'queen'
+```
+Furthermore, the most similar words localize _near_ in embedding space, than less similar words. Thus, you may find most similar words using different measures of distance like cosine or L2 distance.
+
+![w2v_types](/images/word2vec/w2v_example.png)
+
+> Figure A. Words in embedding space.
+
+Before understand word2vec architectures types, need to know what is **target** and **context**. 
+
+![w2v_types](/images/word2vec/w2v_context_target.png)
+
+> Figure B. Context and target.
+
+**Context** this is near words to **target** word, nearness defined by window size - how many words (in left and right) are located from 
+central(or **target**) word. Great visualization by lil'log on image B.
+
+# Types
+
+There are two types of word2vec architecture:
+1. Skip gram, main idea of this architecture in prediction **context** by **target**, or other words, predict near words
+by the central word. Input of this model is OHE vector with **target** word, output - vector with probabilities of **context** words.
+2. CBOW, main idea in prediction **target** by **context** words. The input of this model is OHE vectors with each one is of **context** word. Output - vector with **target** word probabilities.
+
+![w2v_types](/images/word2vec/w2v_types.png)
+
+> Figure C. Skip gram and CBOW architectures.
+
+Visualization on C figure, result made word embeddings extracted from embedding matrix (weights of the first layer, matrix W).
+Word2Vec has many variations of loss functions, more detailed in [2].
+
+Links
+
+***
+
+1. [Introduction;](https://www.analyticsvidhya.com/blog/2019/07/how-to-build-recommendation-system-word2vec-python/)
+2. [Great comprehensive explanation by lil'log;](https://lilianweng.github.io/lil-log/2017/10/15/learning-word-embedding.html)
+3. [Paper;](https://arxiv.org/pdf/1411.2738.pdf)
+4. [Skip gramm word2vec implementation;](https://towardsdatascience.com/an-implementation-guide-to-word2vec-using-numpy-and-google-sheets-13445eebd281)
+5. [And another one skip gramm implementation.](https://www.kdnuggets.com/2018/04/implementing-deep-learning-methods-feature-engineering-text-data-skip-gram.html)

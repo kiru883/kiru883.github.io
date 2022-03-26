@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Fully convolutional networks based models."
-tags: [cv, segmentation]
+tags: [CV, segmentation]
 excerpt: Article essence for FCN in which im introduced in segmentation and explain the fully convolutional networks needed for segmentation tasks.  
 style: note
 ---
@@ -46,7 +46,7 @@ Links
 1. [Lecture about CNN and what contain conv. kernels of trained CNN, ru;](https://youtu.be/gnwG5agGsJ4)
 2. [Introduction in segmentation task;](https://towardsdatascience.com/review-fcn-semantic-segmentation-eb8c9b50d2d1)
 3. [Additional explanation;](https://www.gsitechnology.com/Beginners-Guide-to-Segmentation-in-Satellite-Images)
-4. [Paper;](https://arxiv.org/pdf/1411.4038.pdf)
+4. [Paper;](https://arxiv.org/pdf/1411.4038.pdf);
 5. [More lite implementation for reading;](https://github.com/wkentaro/pytorch-fcn/blob/main/torchfcn/models/fcn8s.py)
 6. [Implementation.](https://github.com/shelhamer/fcn.berkeleyvision.org/blob/1305c7378a9f0ab44b2c936f4d60e4687e3d8743/voc-fcn8s/net.py)
 

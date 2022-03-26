@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "ResNet architecture. Residual blocks."
-tags: [cv, feature extractor]
+tags: [CV, feature extractor]
 excerpt: It's pilot note. Simple and not bad image feature extractor network with low count of parameters that realise powerful idea of skip connections.
 style: note
 ---

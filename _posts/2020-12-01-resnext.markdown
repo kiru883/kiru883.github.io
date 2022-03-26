@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Improve ResNet. ResNeXt and SEResNeXt architectures."
-tags: [cv, feature extractor]
+tags: [CV, feature extractor]
 excerpt: New powerful blocks and techniques for ResNet which improve score and decrease count of parameters. New type of convolution. 
 style: note
 ---

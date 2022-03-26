@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "U-Net. Couple of tricks for image segmentation."
-tags: [cv, segmentation, tricks]
+tags: [CV, segmentation, tricks]
 excerpt: FCN-similar network for image segmentation and also a few tricks which may improve segmentation and other CV solutions.
 style: note
 ---
