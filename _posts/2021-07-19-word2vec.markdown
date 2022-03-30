@@ -15,13 +15,13 @@ about it later. The main idea of word2vec is that these word embeddings can be u
 ```
 Furthermore, the most similar words localize _near_ in embedding space, than less similar words. Thus, you may find most similar words using different measures of distance like cosine or L2 distance.
 
-![w2v_types](/images/word2vec/w2v_example.png)
+![w2v_example](/images/word2vec/w2v_example.png)
 
 > Figure A. Words in embedding space.
 
 Before understand word2vec architectures types, need to know what is **target** and **context**. 
 
-![w2v_types](/images/word2vec/w2v_context_target.png)
+![w2v_c_t](/images/word2vec/w2v_context_target.png)
 
 > Figure B. Context and target.
 
