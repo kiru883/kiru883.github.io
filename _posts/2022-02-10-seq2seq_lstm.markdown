@@ -25,15 +25,10 @@ information about part of film, which characters, what did characters in older f
 
 LSTM consists of 3 parts:
 1. Forget gate, need to forget older information from long memory(cell state) depending on new sequence element.
-
 _Irrelevant information about actions in beginning of film (or long memory) unlikely to be actual in the end of movie, need forget old information._
-
 2. Input gate, used to add new information in long memory(cell state), update old cell state with a new sequence element.
-
 _On half of movie appears new character B, need add new info about a new person in a long memory, update cell state._
-
 3. Output gate, extract new hidden state(short memory) using long memory or cell state.
-
 _By new frame of movie character A is stand, but by previous few frames (or short memory) A dance and by long memory person A
 likes to dance, conclusion - character A dancing._
 
