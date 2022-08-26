@@ -32,6 +32,14 @@ github_username:  kiru883
 theme: minima
 plugins:
   - jekyll-feed
+  - jekyll-analytics
+
+# analytics settings
+jekyll_analytics:
+  GoogleAnalytics:          
+    id: G-E0MH2NHX57         
+    anonymizeIp: false      
+
 
 # Exclude from processing.
 # The following items will not be processed, by default.
