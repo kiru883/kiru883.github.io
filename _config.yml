@@ -32,6 +32,8 @@ github_username:  kiru883
 theme: minima
 plugins:
   - jekyll-feed
+  
+google_analytics: G-E0MH2NHX57
 
 # Exclude from processing.
 # The following items will not be processed, by default.
