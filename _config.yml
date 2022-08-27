@@ -35,10 +35,10 @@ plugins:
   - jekyll-analytics
 
 # analytics settings
-jekyll_analytics:
-  GoogleAnalytics:          
-    id: G-E0MH2NHX57         
-    anonymizeIp: false      
+#jekyll_analytics:
+#  GoogleAnalytics:          
+#    id: G-E0MH2NHX57         
+#    anonymizeIp: false      
 
 
 # Exclude from processing.
